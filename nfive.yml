@@ -1,5 +1,5 @@
 name: NFive/plugin-start
-version: 1.0.0
+version: 1.1.0
 description: Simple plugin to start the game
 author: NFive
 license: LGPL
@@ -7,3 +7,5 @@ website: https://nfive.io/
 client:
   main:
     - NFive.Start.Client
+  files:
+    - Overlays/StartOverlay.html
