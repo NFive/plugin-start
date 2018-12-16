@@ -1,5 +1,5 @@
-﻿using NFive.SDK.Client.Interface;
-using System;
+﻿using System;
+using NFive.SDK.Client.Interface;
 
 namespace NFive.Start.Client.Overlays
 {
@@ -9,7 +9,7 @@ namespace NFive.Start.Client.Overlays
 
 		public StartOverlay(OverlayManager manager) : base("StartOverlay.html", manager)
 		{
-			this.Attach("play", (_, callback) => this.Play?.Invoke(this, new OverlayEventArgs(this)));
+			Attach("play", (_, callback) => this.Play?.Invoke(this, new OverlayEventArgs(this)));
 		}
 	}
 }
