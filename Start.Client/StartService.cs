@@ -41,14 +41,14 @@ namespace NFive.Start.Client
 			API.SetCloudHatOpacity(0.01f);
 
 			// Wait for switch
-			while (API.GetPlayerSwitchState() != 5) await this.Delay(10);
+			while (API.GetPlayerSwitchState() != 5) await Delay(10);
 
 			// Hide loading screen
 			API.ShutdownLoadingScreen();
 
 			// Fade out
 			Screen.Fading.FadeOut(0);
-			while (Screen.Fading.IsFadingOut) await this.Delay(10);
+			while (Screen.Fading.IsFadingOut) await Delay(10);
 
 			// Show overlay
 			var overlay = new StartOverlay(this.OverlayManager);
@@ -62,7 +62,7 @@ namespace NFive.Start.Client
 
 			// Fade in
 			Screen.Fading.FadeIn(500);
-			while (Screen.Fading.IsFadingIn) await this.Delay(10);
+			while (Screen.Fading.IsFadingIn) await Delay(10);
 		}
 
 		private async void OnPlay(object sender, OverlayEventArgs e)
@@ -77,7 +77,7 @@ namespace NFive.Start.Client
 			Game.Player.Character.Position = new Vector3(0f, 0f, 71f);
 
 			// Load character model
-			while (!await Game.Player.ChangeModel(new Model(PedHash.FreemodeMale01))) await this.Delay(10);
+			while (!await Game.Player.ChangeModel(new Model(PedHash.FreemodeMale01))) await Delay(10);
 			Game.Player.Character.Style.SetDefaultClothes();
 
 			// Unfreeze
