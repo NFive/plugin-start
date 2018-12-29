@@ -2,6 +2,7 @@ using CitizenFX.Core;
 using CitizenFX.Core.Native;
 using CitizenFX.Core.UI;
 using JetBrains.Annotations;
+using NFive.SDK.Client.Commands;
 using NFive.SDK.Client.Events;
 using NFive.SDK.Client.Extensions;
 using NFive.SDK.Client.Interface;
@@ -17,7 +18,7 @@ namespace NFive.Start.Client
 	[PublicAPI]
 	public class StartService : Service
 	{
-		public StartService(ILogger logger, ITickManager ticks, IEventManager events, IRpcHandler rpc, OverlayManager overlayManager, User user) : base(logger, ticks, events, rpc, overlayManager, user) { }
+		public StartService(ILogger logger, ITickManager ticks, IEventManager events, IRpcHandler rpc, ICommandManager commands, OverlayManager overlayManager, User user) : base(logger, ticks, events, rpc, commands, overlayManager, user) { }
 
 		public override async Task Started()
 		{
