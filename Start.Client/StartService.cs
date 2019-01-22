@@ -18,9 +18,11 @@ namespace NFive.Start.Client
 	[PublicAPI]
 	public class StartService : Service
 	{
+		private bool started = false;
+
 		public StartService(ILogger logger, ITickManager ticks, IEventManager events, IRpcHandler rpc, ICommandManager commands, OverlayManager overlayManager, User user) : base(logger, ticks, events, rpc, commands, overlayManager, user) { }
 
-		public override async Task Started()
+		public override async Task HoldFocus()
 		{
 			// Hide HUD
 			Screen.Hud.IsVisible = false;
@@ -63,6 +65,9 @@ namespace NFive.Start.Client
 			// Fade in
 			Screen.Fading.FadeIn(500);
 			while (Screen.Fading.IsFadingIn) await Delay(10);
+
+			// Wait for user before releasing focus
+			while (!this.started) await Delay(20);
 		}
 
 		private async void OnPlay(object sender, OverlayEventArgs e)
@@ -88,6 +93,9 @@ namespace NFive.Start.Client
 
 			// Switch in
 			API.SwitchInPlayer(API.PlayerPedId());
+
+			// Release focus hold
+			this.started = true;
 		}
 	}
 }
