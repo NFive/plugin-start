@@ -1,5 +1,5 @@
-﻿using System;
 using NFive.SDK.Client.Interface;
+using System;
 
 namespace NFive.Start.Client.Overlays
 {

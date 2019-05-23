@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 [assembly: ClientPlugin(SDK.Version)]
 
 [assembly: AssemblyTitle("NFive Start")]
-[assembly: AssemblyDescription("Simple plugin to start the game")]
+[assembly: AssemblyDescription("Simple plugin to hide the loading screen and spawn the player")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("NFive")]
 [assembly: AssemblyProduct("NFive Start Client Plugin")]
