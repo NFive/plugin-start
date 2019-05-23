@@ -1,8 +1,8 @@
 name: NFive/plugin-start
 version: 1.3.0
 description: Simple plugin to start the game
+license: LGPL-3.0-or-later
 author: NFive
-license: LGPL
 website: https://nfive.io/
 client:
   main:
