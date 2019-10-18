@@ -85,8 +85,8 @@
     <None Include="Locales\fr.po" />
     <EmbeddedResource Include="Locales\ja-JP.mo" />
     <None Include="Locales\ja-JP.po" />
-    <EmbeddedResource Include="Locales\zh.mo" />
-    <None Include="Locales\zh.po" />
+    <EmbeddedResource Include="Locales\zh-CN.mo" />
+    <None Include="Locales\zh-CN.po" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
