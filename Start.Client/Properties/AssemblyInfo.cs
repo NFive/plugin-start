@@ -1,6 +1,6 @@
-using NFive.SDK.Client;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using NFive.SDK.Client;
 
 [assembly: ClientPlugin(SDK.Version)]
 

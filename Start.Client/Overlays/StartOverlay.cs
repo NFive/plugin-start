@@ -1,5 +1,6 @@
-using NFive.SDK.Client.Interface;
 using System;
+using NFive.SDK.Client.Interface;
+using NFive.SDK.Client.Services;
 
 namespace NFive.Start.Client.Overlays
 {
@@ -7,9 +8,16 @@ namespace NFive.Start.Client.Overlays
 	{
 		public event EventHandler<OverlayEventArgs> Play;
 
-		public StartOverlay(OverlayManager manager) : base("StartOverlay.html", manager)
+		public StartOverlay(OverlayManager manager) : base(manager) { }
+
+		public override dynamic Ready()
 		{
-			Attach("play", (_, callback) => this.Play?.Invoke(this, new OverlayEventArgs(this)));
+			On("play", () => this.Play?.Invoke(this, new OverlayEventArgs(this)));
+
+			return new
+			{
+				Text = Service._("Play") // Translated button text
+			};
 		}
 	}
 }
