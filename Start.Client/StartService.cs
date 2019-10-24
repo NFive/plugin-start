@@ -20,7 +20,7 @@ namespace NFive.Start.Client
 	{
 		private bool started;
 
-		public StartService(ILogger logger, ITickManager ticks, ICommunicationManager comms, ICommandManager commands, OverlayManager overlayManager, User user) : base(logger, ticks, comms, commands, overlayManager, user) { }
+		public StartService(ILogger logger, ITickManager ticks, ICommunicationManager comms, ICommandManager commands, IOverlayManager overlayManager, User user) : base(logger, ticks, comms, commands, overlayManager, user) { }
 
 		public override async Task HoldFocus()
 		{
@@ -30,7 +30,7 @@ namespace NFive.Start.Client
 			// Disable the loading screen from automatically being dismissed
 			// No longer works, requires "loadscreen_manual_shutdown 'yes'" in __resource.lua:
 			// https://github.com/citizenfx/fivem/blob/7208a2a63fe5da65ce5ea785032d148ae9354ac1/code/components/loading-screens-five/src/LoadingScreens.cpp#L146
-			API.SetManualShutdownLoadingScreenNui(true);
+			//API.SetManualShutdownLoadingScreenNui(true);
 
 			// Position character, required for switching
 			Game.Player.Character.Position = Vector3.Zero;
@@ -54,12 +54,12 @@ namespace NFive.Start.Client
 			Screen.Fading.FadeOut(0);
 			while (Screen.Fading.IsFadingOut) await Delay(10);
 
-			// Show overlay
-			var overlay = new StartOverlay(this.OverlayManager);
+			// Create overlay
+			var overlay = new StartOverlay(this.OverlayManager, this.Catalog);
 			overlay.Play += OnPlay;
 
 			// Focus overlay
-			API.SetNuiFocus(true, true);
+			this.OverlayManager.Focus(true, true);
 
 			// Shut down the NUI loading screen
 			API.ShutdownLoadingScreenNui();
@@ -78,7 +78,7 @@ namespace NFive.Start.Client
 			e.Overlay.Dispose();
 
 			// Un-focus overlay
-			API.SetNuiFocus(false, false);
+			this.OverlayManager.Focus(false, false);
 
 			// Position character 
 			Game.Player.Character.Position = new Vector3(0f, 0f, 71f);
