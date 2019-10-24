@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NFive/plugin-start\n"
-"POT-Creation-Date: 2019-10-18 18:39+0100\n"
-"PO-Revision-Date: 2019-10-18 18:39+0100\n"
+"POT-Creation-Date: 2019-10-24 23:10+0100\n"
+"PO-Revision-Date: 2019-10-24 23:10+0100\n"
 "Last-Translator: NFive <contact@nfive.io>\n"
 "Language-Team: https://github.com/NFive/plugin-start\n"
 "Language: da\n"
@@ -16,6 +16,6 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: Overlays/StartOverlay.cs:19
+#: Overlays/StartOverlay.cs:24
 msgid "Play"
 msgstr "Spil"
