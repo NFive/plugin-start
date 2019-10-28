@@ -96,6 +96,9 @@ namespace NFive.Start.Client
 			// Switch in
 			API.SwitchInPlayer(API.PlayerPedId());
 
+			// Restore clouds
+			API.SetCloudHatOpacity(1f);
+
 			// Release focus hold
 			this.started = true;
 		}
